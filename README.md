@@ -71,6 +71,15 @@ the document when the script is run. If you add new .foo elements (for example
 via ajax), they will not initialized. With jQuery directives
 you can do this:
 
+```javascript
+$.directive('.foo',  function(element, attrs) {  
+    // Initialize jquery.foo.js plugin
+    element.foo();
+});
+```
+
+Or, if you prefer attributes over classes:
+
 ```html
 <div foo><div>
 ```
