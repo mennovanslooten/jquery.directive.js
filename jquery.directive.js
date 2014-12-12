@@ -16,7 +16,7 @@
 		that has name as an attribute or CSS class.
 
 		This only has to be called once. It will then be called for every matching element,
-		even elements that are added dynamically.
+		even elements that are added to the DOM later
 	*/
 	$.directive = function(name, callback) {
 		var identifier = 'directive' + (_counter++);
