@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>jquery.directive.js example</title>
+		<script src="assets/jquery-1.11.1.min.js"></script>
+
+		<style type="text/css">
+			body {
+				font-size: 14px;
+			}
+
+			code {
+				background: #DDD;
+			}
+
+			pre {
+				tab-size: 4;
+				font-size: 12px;
+				padding: 10px;
+				background: #DDD;
+			}
+
+			.example {
+				overflow: auto;
+			}
+
+			.example_text {
+				max-width: 600px;
+				float: left;
+			}
+
+			.example_demo {
+				float: left;
+			}
+		</style>
+
+		<script src="../jquery.directive.js"></script>
+
+		<script id="red_directive">
+$.directive('big-red-border', function(element, attributes) {
+	element.css({
+		border: '10px solid red',
+		padding: '20px'
+	});
+
+	var button = $('<button>click me</button>');
+
+	button.on('click', function() {
+		element.append('<div big-red-border/>');
+	});
+
+	element.append(button);
+});
+		</script>
+
+		<script id="blue_directive">
+$.directive('.big-blue-border', function(element, attributes) {
+	element.css({
+		border: '10px solid blue',
+		padding: '20px'
+	});
+
+	var button = $('<button>click me</button>');
+
+	button.on('click', function() {
+		element.append('<div class="big-blue-border"/>');
+	});
+
+	element.append(button);
+});
+		</script>
+
+		<script id="source_directive">
+$.directive('source', function(element, attributes) {
+	var source = $(attributes.source);
+	element.text(source.text());
+});
+		</script>
+
+	</head>
+
+
+	<body>
+
+	<div class="example">
+		<div class="example_text">
+			<h2>Attribute directive</h2>
+			<p>
+				This is an attribute based directive.
+				Click the button to add more instances and notice how the callback function is automatically called for them.
+			</p>
+			<pre source="#red_directive"></pre>
+			<pre>&lt;div big-red-border&gt;&lt;/div&gt;</pre>
+		</div>
+
+		<div class="example_demo">
+			<div big-red-border></div>
+		</div>
+	</div>
+
+
+	<div class="example">
+		<div class="example_text">
+			<h2>CSS class directive</h2>
+			<p>
+				This is a CSS class based directive.
+				Click the button to add more instances and notice how the callback function is automatically called for them.
+			</p>
+			<pre source="#blue_directive"></pre>
+			<pre>&lt;div class="big-blue-border"&gt;&lt;/div&gt;</pre>
+		</div>
+
+		<div class="example_demo">
+			<div class="big-blue-border"></div>
+		</div>
+	</div>
+
+
+
+	</body>
+</html>
+
