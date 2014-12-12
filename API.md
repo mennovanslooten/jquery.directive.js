@@ -19,12 +19,11 @@ will be executed for every element individually.
 
   1. If it starts with a `.` (period) and contains no spaces
   it will match elements by CSS class name. For example,
-  `".myDirective"` will match `<div class="myDirective">`
+  `$.directive(".myDirective", ...)` will match `<div class="myDirective">`
 
   2. Anything else will match elements by attribute name.
-  For example `"my-directive"` will match `<div my-directive>`
-  and `<div data-my-directive>`. It does not matter if the
-  attribute has a value.
+  For example `$.directive("my-directive", ...)` will match `<div my-directive>`
+  and `<div data-my-directive>`.
 
 * **callback** `Function(element, attributes)`
 
@@ -58,6 +57,13 @@ $.directive('big-red-border', function(element, attributes) {
 });
 ```
 
+Will result in:
+```html
+<div big-red-border style="border: 10px solid red"></div>
+```
+
+
+
 Inside a directive callback, you are free to manipulate the element:
 
 ```html
@@ -68,6 +74,13 @@ Inside a directive callback, you are free to manipulate the element:
 $.directive('hello-world', function(element, attributes) {
     element.prepend('<h1>Hello, world!</h1>');
 });
+```
+
+Will result in:
+```html
+<div hello-world>
+    <h1>Hello, world!</h1>
+</div>
 ```
 
 Directives can be combined:
@@ -82,32 +95,4 @@ Or nested:
 <div big-red-border>
     <div hello-world></div>
 </div>
-```
-
-Here's a more practical example that will add `<input placeholder="...">` functionality
-to browsers that don't support the attribute:
-
-
-```javascript
-$.directive('placeholder', function(element, attributes) {
-	var placeholder = $.trim(attributes.placeholder);
-
-	function hidePlaceholder() {
-		if (element.val() === placeholder) {
-			element.val('');
-		}
-	}
-
-	function showPlaceholder() {
-		if (element.val() === '') {
-			element.val(placeholder);
-		}
-	}
-
-	element.closest('form').on('submit', hidePlaceholder);
-	element.on('focus', hidePlaceholder);
-	element.on('blur', showPlaceholder);
-
-	showPlaceholder();
-});
 ```

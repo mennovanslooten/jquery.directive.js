@@ -90,3 +90,15 @@ $.directive('foo',  function(element, attrs) {
     element.foo();
 });
 ```
+## How does it work?
+
+The plugin works by hijacking some of jQuery's DOM manipulation methods. The
+methods keep working as usual, but after the DOM is updated, the plugin checks
+for any new elements that match a directive.
+
+## How does it not work?
+
+The plugin will only pick up new elements that are created through jQuery's DOM
+manipulation methods. If you create elements using vanilla HTML (e.g.
+`element.innerHTML`, `document.createElement()`, `element.appendChild()`) they
+won't be picked up by the directive.
