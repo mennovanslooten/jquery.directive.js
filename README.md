@@ -68,7 +68,7 @@ $('.foo').foo();
 
 Great, but this only works for elements with class="foo" that are already in
 the document when the script is run. If you add new .foo elements (for example
-via ajax), they will not initialized. With jQuery directives
+via ajax), they will not be initialized. With jQuery directives
 you can do this:
 
 ```javascript
@@ -102,3 +102,6 @@ The plugin will only pick up new elements that are created through jQuery's DOM
 manipulation methods. If you create elements using vanilla HTML (e.g.
 `element.innerHTML`, `document.createElement()`, `element.appendChild()`) they
 won't be picked up by the directive.
+
+Elements that have their CSS class name changed or an attribute added to match a
+directive will also not be picked up. Only new elements are detected.
