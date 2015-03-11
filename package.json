@@ -1,0 +1,28 @@
+{
+  "name": "jquery.directive.js",
+  "version": "1.0.0",
+  "description": "Angular-style directives in jQuery",
+  "main": "jquery.directive.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mennovanslooten/jquery.directive.js.git"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "angular",
+    "directive"
+  ],
+  "author": "Menno van Slooten",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mennovanslooten/jquery.directive.js/issues"
+  },
+  "homepage": "https://github.com/mennovanslooten/jquery.directive.js"
+}
