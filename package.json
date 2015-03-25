@@ -21,7 +21,7 @@
   ],
   "dependencies": {
     "jquery": "1.x || 2.x"
-  }
+  },
   "author": "Menno van Slooten",
   "license": "MIT",
   "bugs": {
