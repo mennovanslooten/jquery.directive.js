@@ -1,6 +1,6 @@
 {
   "name": "jquery.directive.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Angular-style directives in jQuery",
   "main": "jquery.directive.js",
   "directories": {
@@ -19,6 +19,9 @@
     "angular",
     "directive"
   ],
+  "dependencies": {
+    "jquery": "1.x || 2.x"
+  }
   "author": "Menno van Slooten",
   "license": "MIT",
   "bugs": {

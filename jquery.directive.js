@@ -1,11 +1,10 @@
-/*
-	TODO:
-*/
-
-
-
-(function($, undefined) {
-
+(function (factory) {
+	if (typeof module === 'object' && typeof module.exports === 'object') {
+		factory(require('jquery'));
+	} else {
+		factory(jQuery);
+	}
+}(function($, undefined) {
 	var _directive_setup = {};
 	var _counter = 0;
 	var $doc = $(document);
@@ -113,4 +112,5 @@
 	}
 
 
-})(jQuery);
+}));
+
